@@ -5,7 +5,7 @@ import requests as r
 
 def get_ccds_id(uniport_id):
     '''
-    get ccds id for a given uniprot id
+    Return a CCDS id for a given UniProt id
     '''
     url = 'https://www.uniprot.org/uploadlists/'
     uniprot_params = {
