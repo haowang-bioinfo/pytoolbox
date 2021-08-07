@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+import re
+import requests as r
+
 
 def get_ccds_id(uniport_id):
     '''
