@@ -1,1 +1,2 @@
-mapids
+# mapids - a python module
+
