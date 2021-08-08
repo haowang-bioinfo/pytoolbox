@@ -1,2 +1,2 @@
-# mapids - a python module
+# pytoolbox - a collection of python bioinfomatics tools
 
