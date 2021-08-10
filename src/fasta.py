@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 import requests as r
 from Bio import SeqIO
 from io import StringIO
@@ -22,6 +23,9 @@ def sort_fasta_file(ref_fasta, fasta_to_sort, use_id=True):
     :param fasta_to_sort: a list of fasta to be sorted
     :param use_id: True, sort by id; False, sort by description 
     '''
+    if not (type(ref_fasta) is list and type(fasta_to_sort) is list):
+        sys.exit("Input fasta should be in list type.")
+
     sorted_fasta = []  # initial return value
     for elem in ref_fasta:
 
