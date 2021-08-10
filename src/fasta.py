@@ -55,3 +55,14 @@ def filter_fasta_seqs(input_fasta, chars_to_exclude=['N']):
             input_fasta.remove(elem)
     return input_fasta
 
+
+def remove_desc(input_fasta):
+    '''
+    Clean sequence description for each seqRecord element
+    :param input_fasta: fasta sequences as a list of SeqRecord object
+    '''
+    for elem in input_fasta:
+        elem.description = ""
+    return input_fasta
+
+
