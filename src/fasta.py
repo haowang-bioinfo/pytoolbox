@@ -32,9 +32,9 @@ def sort_fasta_file(ref_fasta, fasta_to_sort, use_id=True):
         # fetch the corresponding SeqRecord
         for value in fasta_to_sort:
             if use_id and elem.id == value.id:
-                    desired_value = value
+                desired_value = value
             elif not use_id and elem.description in value.description:
-                    desired_value = value
+                desired_value = value
             sorted_fasta.append(desired_value)
             break
         
