@@ -15,21 +15,25 @@ def get_uniprot_seq(uniprot_id):
     return list(SeqIO.parse(Seq, 'fasta'))
 
 
-def sort_fasta_file(ref_fasta, fasta_to_sort):
+def sort_fasta_file(ref_fasta, fasta_to_sort, use_id=True):
     '''
     Sort an input fasta in SeqRecord object based on a reference fasta
     :param ref_fasta: a reference list of fasta
     :param fasta_to_sort: a list of fasta to be sorted
+    :param use_id: True, sort by id; False, sort by description 
     '''
-    sorted_fasta = []
-
+    sorted_fasta = []  # initial return value
     for elem in ref_fasta:
 
         # fetch the corresponding SeqRecord
         for value in fasta_to_sort:
-            if elem.description in value.description:
-                sorted_fasta.append(value)
-                break
+            if use_id and elem.id == value.id:
+                    sorted_fasta.append(value)
+            elif not use_id and elem.description in value.description:
+                    sorted_fasta.append(value)
+            break
+        
+        # To do: check consistency between ref and sorted
     return sorted_fasta
 
 
