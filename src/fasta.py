@@ -50,11 +50,12 @@ def filter_fasta_seqs(input_fasta, chars_to_exclude=['N']):
     :param char_to_exclude: a list of individual characters to be excluded
     '''
     chars_in_set = set([x.lower() for x in chars_to_exclude])
+    output_fasta = []
     for elem in input_fasta:
         # Check whether sequence contains ANY of the items in set
-        if 1 in [c in elem.seq.lower() for c in chars_in_set]:
-            input_fasta.remove(elem)
-    return input_fasta
+        if 1 not in [c in elem.seq.lower() for c in chars_in_set]:
+            output_fasta.append(elem)
+    return output_fasta
 
 
 def remove_desc(input_fasta):

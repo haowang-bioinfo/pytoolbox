@@ -6,8 +6,8 @@ from Bio import SeqIO
 from io import StringIO
 
 # test for filter_fasta_seq
-seq = list(SeqIO.parse(StringIO('>abc\nAGCTNACTG'), 'fasta'))
-assert fasta.filter_fasta_seqs(seq) == [], "failed to filter sequences."
+seq = list(SeqIO.parse(StringIO('>a\nAGCTNACTG\n>b\nAGCT'), 'fasta'))
+assert len(fasta.filter_fasta_seqs(seq)) == 1, "failed to filter sequences."
 
 # test for get_ccds_id
 uniprotid = "P14550"
