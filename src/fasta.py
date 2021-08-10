@@ -33,3 +33,17 @@ def sort_fasta_file(ref_fasta, fasta_to_sort):
     return sorted_fasta
 
 
+def filter_fasta_seqs(input_fasta, chars_to_exclude=['N']):
+    '''
+    Filter input fasta sequences by removing the ones containing specific bases
+    or residues
+    :param input_fasta: fasta sequences as a list of SeqRecord object
+    :param char_to_exclude: a list of individual characters to be excluded
+    '''
+    chars_in_set = set([x.lower() for x in chars_to_exclude])
+    for elem in input_fasta:
+        # Check whether sequence contains ANY of the items in set
+        if 1 in [c in elem.seq.lower() for c in chars_in_set]:
+            input_fasta.remove(elem)
+    return input_fasta
+
