@@ -5,6 +5,16 @@ from Bio import SeqIO
 from io import StringIO
 
 
+def get_fasta_header(input_fasta):
+    '''
+    extract header lines from an input fasta in SeqRecord object
+    '''
+    header_list = []
+    for elem in input_fasta:
+        header_list.append(elem.description)
+    return header_list
+
+
 def get_uniprot_seq(uniprot_id):
     '''
     Download UniProt protein sequence and retrun as a SeqRecord object
