@@ -2,14 +2,16 @@
 # this script is to integrate orthologs annotated from Ensembl and NCBI databases
 # at species level
 
+
 import os
 import sys
 import glob
 import json
 
-def load_files_in_folder(folder_name, file_extension='', excludePath=False):
+
+def load_files_in_folder(folder_name, file_extension="*", excludePath=True):
     '''
-    load filenames from a folder into a list
+    load filenames within a folder into a list
     '''
     if not os.path.isdir(folder_name):
         sys.exit('Folder "'+folder_name+'" cannot be found!')
