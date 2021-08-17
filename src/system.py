@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# this script is to integrate orthologs annotated from Ensembl and NCBI databases
-# at species level
-
 
 import os
 import sys
