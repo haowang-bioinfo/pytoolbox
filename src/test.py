@@ -17,7 +17,7 @@ ccdsid = "CCDS523.1"
 assert ccdsid == mapid.get_ccds_id(uniprotid), "failed in mapping CCDS id."
 
 # test for system
-files = ['__init__.py', 'fasta.py', 'mapid.py', 'parsers.py', 'system.py', 'test.py']
+files = ['__init__.py', 'fasta.py', 'gem.py', 'mapid.py', 'parsers.py', 'system.py', 'test.py']
 assert files == sorted(system.load_files_in_folder("./")), "failed in loading files."
 
 print("All tests have passed.")
