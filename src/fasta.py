@@ -80,9 +80,10 @@ def remove_desc(input_fasta):
 
 def extend_fasta_seqs(seqs_in_list, input_fasta):
     '''
-    
-    :param input_fasta: fasta sequences as a list of SeqRecord object
+    Extend a list of fasta seqs with another input fasta file
     '''
-    return seqs_in_list.extend(list(SeqIO.parse(input_fasta, 'fasta')))
+    # extend is in-place method, it does not return anything, it modifies list.
+    seqs_in_list.extend(list(SeqIO.parse(input_fasta, 'fasta')))
+    return seqs_in_list
 
 
