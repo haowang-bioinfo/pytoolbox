@@ -78,3 +78,11 @@ def remove_desc(input_fasta):
     return input_fasta
 
 
+def extend_fasta_seqs(seqs_in_list, input_fasta):
+    '''
+    
+    :param input_fasta: fasta sequences as a list of SeqRecord object
+    '''
+    return seqs_in_list.extend(list(SeqIO.parse(input_fasta, 'fasta')))
+
+
