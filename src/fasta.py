@@ -5,6 +5,16 @@ from Bio import SeqIO
 from io import StringIO
 
 
+def get_fasta_header(input_fasta):
+    '''
+    extract header lines from an input fasta in SeqRecord object
+    '''
+    header_list = []
+    for elem in input_fasta:
+        header_list.append(elem.description)
+    return header_list
+
+
 def get_uniprot_seq(uniprot_id):
     '''
     Download UniProt protein sequence and retrun as a SeqRecord object
@@ -66,5 +76,14 @@ def remove_desc(input_fasta):
     for elem in input_fasta:
         elem.description = ""
     return input_fasta
+
+
+def extend_fasta_seqs(seqs_in_list, input_fasta):
+    '''
+    Extend a list of fasta seqs with another input fasta file
+    '''
+    # extend is in-place method, it does not return anything, it modifies list.
+    seqs_in_list.extend(list(SeqIO.parse(input_fasta, 'fasta')))
+    return seqs_in_list
 
 
