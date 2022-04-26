@@ -37,3 +37,10 @@ def write_json_file(json_object, file_name, path='./'):
     with open(path+file_name, 'w') as fp:
         json.dump(json_object, fp, indent=4)
 
+
+def pretty_json_file(input_file, output_file):
+    '''
+    pretty Json file with proper indentations
+    '''
+    write_json_file(read_json_file(input_file), output_file)
+
